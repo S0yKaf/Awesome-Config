@@ -8,18 +8,12 @@ function update_temps(widget)
    local fd = io.popen("sensors | grep Physical | awk '{ print $4 }'")
    local temps = fd:read("*all")
    fd:close()
-   
+
    widget:set_markup(string.format('<span color="#FF3300"> '..temps.. ' </span>'))
 end
 
 update_temps(temps_widget)
 
-memtimer = timer({ timeout = 2 })
+memtimer = timer({ timeout = 10 })
 memtimer:connect_signal("timeout", function () update_temps(temps_widget) end)
 memtimer:start()
-
-
-
-
-
-

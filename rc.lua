@@ -51,7 +51,9 @@ beautiful.init("~/.config/awesome/themes/Eclair/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "termite"
 editor = os.getenv("EDITOR") or "nano"
+editor_gui = "atom"
 editor_cmd = terminal .. " -e " .. editor
+editor_gui_cmd = terminal .. " -e " .. editor_gui
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -95,7 +97,7 @@ tags = {
 }}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag(tags.names, s, 
+    tags[s] = awful.tag(tags.names, s,
 tags.layout)
 end
 -- }}}
@@ -104,7 +106,7 @@ end
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
+   { "edit config", editor_gui_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -233,19 +235,18 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+    awful.key({ modkey,}, "Left",   awful.tag.viewprev),
+    awful.key({ modkey,}, "Right",  awful.tag.viewnext),
+    awful.key({ modkey,}, "Escape", awful.tag.history.restore),
     awful.key({}, "XF86AudioRaiseVolume",function () awful.util.spawn("dvol -i 2") end),
     awful.key({}, "XF86AudioLowerVolume",function () awful.util.spawn("dvol -d 2") end),
     awful.key({}, "XF86AudioMute",function () awful.util.spawn("dvol -t") end),
     awful.key({}, "XF86Launch1", function () awful.util.spawn("scrot -s '%s.png' -e 'mv $f ~/Pictures/Screenshots/'") end),
     awful.key({"Shift",}, "XF86Launch1", function () awful.util.spawn("scrot '%s.png' -e 'mv $f ~/Pictures/Screenshots/'") end),
     awful.key({}, "XF86Sleep",function () awful.util.spawn("systemctl suspend") end),
-    awful.key({}, "XF86ScreenSaver",function () 
-awful.util.spawn("slock") end),
+    awful.key({}, "XF86ScreenSaver",function () awful.util.spawn("slock") end),
     awful.key({"Control",}, "space",function () awful.util.spawn("/home/empress/bash/kbSwitch") end),
-    awful.key({ modkey,           }, "j",
+    awful.key({ modkey,}, "j",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
@@ -287,7 +288,7 @@ awful.util.spawn("slock") end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
-    
+
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 

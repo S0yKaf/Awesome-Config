@@ -16,7 +16,6 @@ end
 
 update_cmus(cmus_widget)
 
-mytimer = timer({ timeout = 2 })
+mytimer = timer({ timeout = 10 })
 mytimer:connect_signal("timeout", function () update_cmus(cmus_widget) end)
 mytimer:start()
-
