@@ -13,7 +13,7 @@ theme.wallpaper = "/home/empress/Pictures/Wallpaper/wallpaper.png"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "Terminus 9"
+theme.font      = "Terminus 8"
 
 -- {{{ Colors
 theme.fg_normal  = "#d9e6f2"

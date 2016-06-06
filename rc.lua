@@ -12,7 +12,7 @@ local naughty = require("naughty")
 local vicious = require("vicious")
 local menubar = require("menubar")
 --My scripts
-require("volume")
+--require("volume")
 require("battery")
 require("cmus")
 require("ram")
@@ -211,7 +211,7 @@ for s = 1, screen.count() do
     right_layout:add(activeram_widget)
     right_layout:add(temps_widget)
     right_layout:add(battery_widget)
-    right_layout:add(volume_widget)
+   -- right_layout:add(volume_widget)
     right_layout:add(mytextclock)
 
     -- Now bring it all together (with the tasklist in the middle)

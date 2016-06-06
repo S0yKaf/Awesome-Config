@@ -5,7 +5,7 @@ activeram_widget = wibox.widget.textbox()
 activeram_widget:set_align("right")
 
 function update_activeram(widget)
-   local fd = io.popen("free -h | awk '/Mem:/ { print $3 }'")
+   local fd = io.popen("free -h --si | awk '/Mem:/ { print $3 }'")
    local ram = fd:read("*all")
    fd:close()
 
