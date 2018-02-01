@@ -9,11 +9,11 @@
 -- {{{ Main
 theme = {}
 theme.tasklist_disable_icon = true
-theme.wallpaper = "/home/empress/Pictures/Wallpaper/wallpaper.png"
+theme.wallpaper = "/home/empress/Pictures/Wallpaper/wall.png"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "Terminus 8"
+theme.font      = "xos4 Terminus 9"
 
 -- {{{ Colors
 theme.fg_normal  = "#d9e6f2"

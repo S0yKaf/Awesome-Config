@@ -5,7 +5,7 @@ temps_widget = wibox.widget.textbox()
 temps_widget:set_align("right")
 
 function update_temps(widget)
-   local fd = io.popen("sensors | grep Physical | awk '{ print $4 }'")
+   local fd = io.popen("sensors | grep Package | awk '{ print $4 }'")
    local temps = fd:read("*all")
    fd:close()
 
